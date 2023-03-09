@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>    
-    <meta charset="UTF-8" /> <!--이 문서는 utf-8로 작성됨-->
+  <head>
+    <meta charset="UTF-8" />
+    <!--이 문서는 utf-8로 작성됨-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--화면 설정-->
-    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--화면 설정-->
+    <style>
+      @font-face {
+        font-family: "D2Coding";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "D2Coding";
+      }
+      body {
+        background-color: rgb(102, 132, 240);
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        background-color: #fff;
+        box-shadow: 0px 0px 30px rgb(57, 76, 143);
+        padding: 30px;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    </style>
     <script src=""></script>
-    <title>로그인</title> <!--브라우저 창을 띄우면 표시되는 머릿글-->
+    <title>로그인</title>
+    <!--브라우저 창을 띄우면 표시되는 머릿글-->
   </head>
   <body>
     <h1>로그인</h1>
-    <form action="">
-        <label for="username"></label>
-        <input type="text" id="username" name="username" required />  
+    <div class="container">
+      <form>
+        <label for="username">아이디</label>
+        <input type="text" id="username" name="username" required />
         <!--name : form 태그 안에서 input 태그를 구분하기 위해 사용-->
         <!--required : 꼭 필요한 요소임을 알림-->
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="password" required />
         <button>로그인</button>
-    </form>
+      </form>
+    </div>
   </body>
 </html>
