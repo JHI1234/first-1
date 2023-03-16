@@ -8,20 +8,20 @@
     <!--화면 설정-->
     <style>
       @font-face {
-        font-family: "D2Coding";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff")
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
           format("woff");
-        font-weight: normal;
+        font-weight: 400;
         font-style: normal;
       }
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: "D2Coding";
+        font-family: "Pretendard-Regular";
       }
       body {
-        background-color: rgb(102, 132, 240);
+        background-color: rgb(151, 169, 232);
       }
       .container {
         height: 100vh;
@@ -33,14 +33,75 @@
         background-color: #fff;
         box-shadow: 0px 0px 30px rgb(57, 76, 143);
         padding: 30px;
-        max-width: 400px;
-        border-radius: 10px;
+        max-width: 300px;
+        border-radius: 20px;
       }
       label {
         display: block;
         margin-bottom: 10px;
+        margin-top: 10px;
         font-size: 1.2rem;
         font-weight: 600;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        height: 40px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid rgb(151, 169, 232);
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+      }
+      button[type="submit"] {
+        transition: background-color 0.5s, color 0.5s;
+        color: rgb(66, 102, 235);
+        width: 100%;
+        height: 40px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: 1px solid rgb(151, 169, 232);
+        background-color: #fff;
+        cursor: pointer;
+        padding: 8px 25px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+      }
+      button[type="submit"]:hover {
+        border: none;
+        background-color: rgb(66, 102, 235);
+        color: #fff;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-20px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(20px);
+        }
+      }
+
+      .shake-text{
+        animation: shake 1s linear;
       }
     </style>
     <script src=""></script>
@@ -48,17 +109,29 @@
     <!--브라우저 창을 띄우면 표시되는 머릿글-->
   </head>
   <body>
-    <h1>로그인</h1>
     <div class="container">
       <form>
+        <h1 class="title">로그인</h1>
         <label for="username">아이디</label>
         <input type="text" id="username" name="username" required />
         <!--name : form 태그 안에서 input 태그를 구분하기 위해 사용-->
         <!--required : 꼭 필요한 요소임을 알림-->
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="password" required />
-        <button>로그인</button>
+        <button id="reqLogin" type="submit">로그인</button>
       </form>
     </div>
   </body>
+  <script>
+    const reqLogin = document.querySelector("#reqLogin");
+    reqLogin.addEventListener("click",()=>{
+      //.title 클래스의 리스트 
+      document.querySelectorAll(".title")[0].classList.add("shake-text");
+
+      //일정한 시간 뒤에 실행
+      setTimeout(() => {
+        document.querySelectorAll(".title")[0].classList.remove("shake-text");
+      }, 1000);
+    });
+  </script>
 </html>
